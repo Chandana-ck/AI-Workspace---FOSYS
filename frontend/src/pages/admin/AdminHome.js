@@ -2,9 +2,16 @@ import React from 'react';
 import { Users, Shield, Activity, Database } from 'lucide-react';
 import { MOCK_USERS, MOCK_PROJECTS, MOCK_TASKS } from '@/utils/mockData';
 import { ROLES } from '@/utils/constants';
+import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 
 const AdminHome = ({ user }) => {
   const currentDate = new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+
+  const recentActivity = [
+  { user: 'Alice Johnson', action: 'Created a new project', time: '2h ago' },
+  { user: 'Mark Lee', action: 'Updated task status', time: '5h ago' },
+  { user: 'System', action: 'Backup completed successfully', time: '1d ago' },
+];
 
   const stats = {
     totalUsers: MOCK_USERS.length,
@@ -118,23 +125,37 @@ const AdminHome = ({ user }) => {
           </div>
         </div>
 
-        <div className="bg-slate-900/50 rounded-xl border border-slate-800 p-6">
-          <h2 className="text-2xl font-semibold text-white mb-6" style={{fontFamily: 'Work Sans'}}>Recent Activity</h2>
-          <div className="space-y-3">
-            <div className="text-sm">
-              <p className="text-white">New user registered</p>
-              <p className="text-slate-400 text-xs">2 hours ago</p>
-            </div>
-            <div className="text-sm">
-              <p className="text-white">Project status updated</p>
-              <p className="text-slate-400 text-xs">5 hours ago</p>
-            </div>
-            <div className="text-sm">
-              <p className="text-white">System backup completed</p>
-              <p className="text-slate-400 text-xs">1 day ago</p>
-            </div>
+        {/* Recent Activity */}
+<Card className="bg-slate-900/50 border-slate-800">
+  <CardHeader>
+    <CardTitle className="text-2xl text-white mb-6" style={{ fontFamily: 'Work Sans' }}>
+      Recent Activity
+    </CardTitle>
+  </CardHeader>
+  <CardContent>
+    <div className="space-y-4">
+      {recentActivity.map((activity, idx) => (
+        <div
+          key={idx}
+          className="flex items-start gap-4 p-4 bg-slate-800/50 rounded-lg border border-slate-700"
+        >
+          <div className="w-10 h-10 bg-indigo-500/10 rounded-full flex items-center justify-center flex-shrink-0">
+            <span className="text-indigo-500 font-semibold">
+              {activity.user.charAt(0)}
+            </span>
           </div>
+          <div className="flex-1 min-w-0">
+            <p className="text-white font-medium">{activity.user}</p>
+            <p className="text-sm text-slate-400">{activity.action}</p>
+          </div>
+          <span className="text-xs text-slate-500">{activity.time}</span>
         </div>
+      ))}
+    </div>
+  </CardContent>
+</Card>
+
+
       </div>
     </div>
   );

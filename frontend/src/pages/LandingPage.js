@@ -88,41 +88,47 @@ const LandingPage = () => {
       </section>
 
       {/* Why Choose FOSYS */}
-      <section className="py-20 px-6 bg-slate-900/50">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-white mb-12 text-center" style={{fontFamily: 'Work Sans'}}>
-            Why Choose FOSYS?
-          </h2>
-          <div className="bg-slate-800/50 rounded-xl border border-slate-700 overflow-hidden">
-            <table className="w-full">
-              <thead className="bg-slate-800">
-                <tr>
-                  <th className="px-6 py-4 text-left text-white font-semibold">Feature</th>
-                  <th className="px-6 py-4 text-left text-white font-semibold">Description</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-700">
-                <tr>
-                  <td className="px-6 py-4 text-blue-400 font-medium">Automated Workflow</td>
-                  <td className="px-6 py-4 text-slate-300">Eliminate manual task assignment with AI-driven meeting analysis.</td>
-                </tr>
-                <tr>
-                  <td className="px-6 py-4 text-blue-400 font-medium">Enhanced Collaboration</td>
-                  <td className="px-6 py-4 text-slate-300">Real-time updates keep your entire team synchronized.</td>
-                </tr>
-                <tr>
-                  <td className="px-6 py-4 text-blue-400 font-medium">Complete Transparency</td>
-                  <td className="px-6 py-4 text-slate-300">Track progress with comprehensive dashboards and live insights.</td>
-                </tr>
-                <tr>
-                  <td className="px-6 py-4 text-blue-400 font-medium">Seamless Integration</td>
-                  <td className="px-6 py-4 text-slate-300">Direct GitHub integration for effortless code validation and reviews.</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+<section className="py-20 px-6 bg-slate-900/50">
+  <div className="max-w-6xl mx-auto">
+    <h2
+      className="text-4xl font-bold text-white mb-12 text-center"
+      style={{ fontFamily: 'Work Sans' }}
+    >
+      Why Choose FOSYS?
+    </h2>
+    <div className="grid md:grid-cols-2 gap-6">
+      {[
+        {
+          title: "Automated Workflow",
+          desc: "Eliminate manual task assignment with AI-driven meeting analysis.",
+        },
+        {
+          title: "Enhanced Collaboration",
+          desc: "Real-time updates keep your entire team synchronized.",
+        },
+        {
+          title: "Complete Transparency",
+          desc: "Track progress with comprehensive dashboards and live insights.",
+        },
+        {
+          title: "Seamless Integration",
+          desc: "Direct GitHub integration for effortless code validation and reviews.",
+        },
+      ].map((item, index) => (
+        <div
+          key={index}
+          className="bg-slate-800/50 border border-slate-700 rounded-xl p-6 transition-all duration-300 ease-in-out hover:translate-y-[-4px] hover:shadow-lg hover:shadow-blue-500/10 hover:border-blue-400/40"
+        >
+          <h3 className="text-lg font-semibold text-white mb-2">
+            {item.title}
+          </h3>
+          <p className="text-slate-300">{item.desc}</p>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
+
 
       {/* How It Works */}
       <section className="py-20 px-6">

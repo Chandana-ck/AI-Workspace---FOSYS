@@ -29,10 +29,12 @@ const Sidebar = ({ role }) => {
       case 'admin':
         return [
           { icon: Home, label: 'HOME', path: `/dashboard/${role}`, testId: 'nav-home' },
+          { icon: FolderKanban, label: 'PROJECTS', path: `/dashboard/${role}/projects`, testId: 'nav-projects' },
           { icon: Users, label: 'USER MANAGEMENT', path: `/dashboard/${role}/users`, testId: 'nav-users' },
           { icon: LayoutDashboard, label: 'SYSTEM', path: `/dashboard/${role}/system`, testId: 'nav-system' },
           { icon: User, label: 'PROFILE', path: `/dashboard/${role}/profile`, testId: 'nav-profile' }
         ];
+
       default:
         return [];
     }

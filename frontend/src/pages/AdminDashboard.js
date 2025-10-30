@@ -5,6 +5,10 @@ import AdminHome from '@/pages/admin/AdminHome';
 import AdminUsers from '@/pages/admin/AdminUsers';
 import AdminSystem from '@/pages/admin/AdminSystem';
 import AdminProfile from '@/pages/admin/AdminProfile';
+import AdminProjects from '@/pages/admin/AdminProject';
+
+{ <Route path="/admin/projects" element={<AdminProjects />} /> }
+
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
@@ -29,6 +33,7 @@ const AdminDashboard = () => {
           <Route index element={<AdminHome user={user} />} />
           <Route path="users" element={<AdminUsers user={user} />} />
           <Route path="system" element={<AdminSystem user={user} />} />
+           <Route path="/projects" element={<AdminProjects />} />
           <Route path="profile" element={<AdminProfile user={user} setUser={setUser} />} />
         </Routes>
       </div>
